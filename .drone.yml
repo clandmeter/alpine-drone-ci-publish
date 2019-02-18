@@ -1,0 +1,100 @@
+---
+kind: pipeline
+name: x86
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: publish
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: docker_user
+      password:
+        from_secret: docker_pass
+      repo: clandmeter/alpine-drone-ci-publish
+      tags: x86
+      dockerfile: dockerfiles/x86/Dockerfile
+
+---
+kind: pipeline
+name: x86_64
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: publish
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: docker_user
+      password:
+        from_secret: docker_pass
+      repo: clandmeter/alpine-drone-ci-publish
+      tags: x86_64
+      dockerfile: dockerfiles/x86_64/Dockerfile
+
+---
+kind: pipeline
+name: armhf
+
+platform:
+  os: linux
+  arch: arm
+
+steps:
+  - name: publish
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: docker_user
+      password:
+        from_secret: docker_pass
+      repo: clandmeter/alpine-drone-ci-publish
+      tags: armhf
+      dockerfile: dockerfiles/armhf/Dockerfile
+
+---
+kind: pipeline
+name: armv7
+
+platform:
+  os: linux
+  arch: arm
+
+steps:
+  - name: publish
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: docker_user
+      password:
+        from_secret: docker_pass
+      repo: clandmeter/alpine-drone-ci-publish
+      tags: armv7
+      dockerfile: dockerfiles/armv7/Dockerfile
+
+---
+kind: pipeline
+name: aarch64
+
+platform:
+  os: linux
+  arch: arm64
+
+steps:
+  - name: publish
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: docker_user
+      password:
+        from_secret: docker_pass
+      repo: clandmeter/alpine-drone-ci-publish
+      tags: aarch64
+      dockerfile: dockerfiles/aarch64/Dockerfile
+
